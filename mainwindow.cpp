@@ -361,18 +361,25 @@ void MainWindow::btn_next_clicked()
 
 void MainWindow::mediaPlayerStateChanged(QMediaPlayer::State state)
 {
+    //播放状态的改变关联到 cd旋转效果的改变 以及 "正在播放"标签的改变
+    QListWidgetItem *item = ListWidget->currentItem();
+    QString str = item->text();
     switch(state)
     {
     case QMediaPlayer::StoppedState:
         pushButton[1]->setChecked(false);
+        Label[0]->setText("正在播放: ");
         break;
 
     case QMediaPlayer::PlayingState:
         pushButton[1]->setChecked(true);
+        Label[0]->setText("正在播放: " + str);
         break;
 
     case QMediaPlayer::PausedState:
         pushButton[1]->setChecked(false);
+        Label[0]->setText("正在播放: " + str);
+
         break;
     }
 }
