@@ -1,0 +1,164 @@
+QWidget {
+background: "#646464"
+}
+
+/*horizontal ：水平QSlider 整个组件的轮廓线*/
+QSlider::groove:horizontal {
+border: 0px solid #bbb;
+}
+
+/*1.滑动过的槽设计参数*/
+QSlider::sub-page:horizontal {
+ /*槽颜色*/
+background: rgb(0,0,0);
+ /*外环区域倒圆角度*/
+border-radius: 2px;
+ /*上遮住区域高度*/
+margin-top:13px;
+ /*下遮住区域高度*/
+margin-bottom:13px;
+/*width在这里无效，不写即可*/
+}
+
+/*2.未滑动过的槽设计参数*/
+QSlider::add-page:horizontal {
+/*槽颜色*/
+background: rgb(255,255, 255);
+/*外环大小0px就是不显示，默认也是0*/
+border: 0px solid #777;
+/*外环区域倒圆角度*/
+border-radius: 2px;
+ /*上遮住区域高度*/
+margin-top:13px;
+ /*下遮住区域高度*/
+margin-bottom:13px;
+}
+
+/*3.平时滑动的滑块设计参数*/
+QSlider::handle:horizontal {
+/*滑块颜色*/
+background: rgb(193,204,208);
+/*滑块的宽度*/
+width: 12px;
+/*滑块外环为1px，再加颜色*/
+border: 1px solid rgb(193,204,208);
+ /*滑块外环倒圆角度*/
+border-radius: 6px;
+ /*上遮住区域高度*/
+margin-top:10px;
+ /*下遮住区域高度*/
+margin-bottom:11px;
+}
+
+/*4.手动拉动时显示的滑块设计参数*/
+QSlider::handle:horizontal:hover {
+/*滑块颜色*/
+background: rgb(193,204,208);
+/*滑块的宽度*/
+width: 16px;
+/*滑块外环为1px，再加颜色*/
+border: 1px solid rgb(193,204,208);
+ /*滑块外环倒圆角度*/
+border-radius: 7px;
+ /*上遮住区域高度*/
+margin-top:8px;
+ /*下遮住区域高度*/
+margin-bottom:9px;
+}
+
+QListWidget {
+color:white;
+font-size: 15px;
+border:none;
+}
+QListWidget:item:active {
+background: transparent;
+}
+
+QListWidget:item {
+background: transparent;
+height:60;
+}
+
+QListWidget:item:selected {
+color:#5edcf3;
+background: transparent;
+}
+
+QListWidget:item:hover {
+background: transparent;
+color:#5edcf3;
+border:none;
+}
+
+QPushButton#btn_display {
+border-image:url(:/images/icons/btn_play1.png);
+}
+
+QPushButton#btn_display:hover {
+border-image:url(:/images/icons/btn_play2.png);
+}
+
+QPushButton#btn_display:checked {
+border-image:url(:/images/icons/btn_pause1.png);
+}
+
+QPushButton#btn_display:checked:hover {
+border-image:url(:/images/icons/btn_pause2.png);
+}
+
+QPushButton#btn_presong {
+border-image:url(:/images/icons/btn_previous1.png);
+}
+
+QPushButton#btn_presong:hover {
+border-image:url(:/images/icons/btn_previous2.png);
+}
+
+QPushButton#btn_nexsong {
+border-image:url(:/images/icons/btn_next1.png);
+}
+
+QPushButton#btn_nexsong:hover {
+border-image:url(:/images/icons/btn_next2.png);
+}
+
+QPushButton#btn_favourite {
+border-image:url(:/images/icons/btn_favorite_no.png);
+}
+
+QPushButton#btn_favourite:checked {
+border-image:url(:/images/icons/btn_favorite_yes.png);
+}
+
+QPushButton#btn_menu {
+border-image:url(:/images/icons/btn_menu1.png);
+}
+
+QPushButton#btn_menu:hover {
+border-image:url(:/images/icons/btn_menu2.png);
+}
+
+QPushButton#btn_mode {
+border-image:url(:/images/icons/btn_listcircle1.png);
+}
+
+QPushButton#btn_mode:hover {
+border-image:url(:/images/icons/btn_listcircle2.png);
+}
+
+QPushButton#btn_mode {
+border-image:url(:/images/icons/btn_listcircle1.png);
+}
+
+QPushButton#btn_mode:hover {
+border-image:url(:/images/icons/btn_listcircle2.png);
+}
+
+QPushButton#btn_volume {
+border-image:url(:/images/icons/btn_volume1.png);
+}
+
+QPushButton#btn_volume:hover {
+border-image:url(:/images/icons/btn_volume2.png);
+}
