@@ -91,6 +91,9 @@ void MainWindow::LayoutInit()
     for(int i = 0; i < 4; i++)
         Label[i] = new QLabel;
 
+    //CD图片
+    cdLabel = new CDLabel;
+
     //播放列表
     ListWidget = new QListWidget;
     ListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -173,14 +176,14 @@ void MainWindow::LayoutInit()
     hWidget[1]->setLayout(hBoxLayout[1]);
 
     //v1布局
-    Label[1]->setMinimumSize(310,310);
+    cdLabel->setMinimumSize(310,310);
     QImage image;
     image.load(":/images/icons/record.png");
     QPixmap pixmap = QPixmap::fromImage(image);
     QPixmap fitpixmap = pixmap.scaled(310,310,
                                       Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
-    Label[1]->setPixmap(fitpixmap);
-    Label[1]->setAlignment(Qt::AlignCenter);
+    cdLabel->setPixmap(fitpixmap);
+    cdLabel->setAlignment(Qt::AlignCenter);
     hWidget[2]->setMinimumSize(310,80);
     hWidget[2]->setMaximumHeight(80);
     QSpacerItem *vSpacer2 = new
@@ -196,7 +199,7 @@ void MainWindow::LayoutInit()
             QSpacerItem(310,15,
                         QSizePolicy::Maximum,QSizePolicy::Maximum);
     vBoxLayout[1]->addSpacerItem(vSpacer2);
-    vBoxLayout[1]->addWidget(Label[1]);
+    vBoxLayout[1]->addWidget(cdLabel);
     vBoxLayout[1]->addSpacerItem(vSpacer3);
     vBoxLayout[1]->addWidget(DurationBar);
     vBoxLayout[1]->addSpacerItem(vSpacer4);
@@ -363,23 +366,29 @@ void MainWindow::mediaPlayerStateChanged(QMediaPlayer::State state)
 {
     //播放状态的改变关联到 cd旋转效果的改变 以及 "正在播放"标签的改变
     QListWidgetItem *item = ListWidget->currentItem();
-    QString str = item->text();
+    QString str;
+    if(item != nullptr)
+        str = item->text();
+    else
+        str = ListWidget->item(0)->text();
     switch(state)
     {
     case QMediaPlayer::StoppedState:
         pushButton[1]->setChecked(false);
         Label[0]->setText("正在播放: ");
+        cdLabel->timerstop();
         break;
 
     case QMediaPlayer::PlayingState:
         pushButton[1]->setChecked(true);
         Label[0]->setText("正在播放: " + str);
+        cdLabel->timerstart();
         break;
 
     case QMediaPlayer::PausedState:
         pushButton[1]->setChecked(false);
         Label[0]->setText("正在播放: " + str);
-
+        cdLabel->timerstop();
         break;
     }
 }

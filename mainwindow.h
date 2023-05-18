@@ -10,6 +10,7 @@
 #include <QListWidget>
 #include <QLabel>
 #include <QSlider>
+#include "CDLabel.h"
 
 //媒体信息结构体
 struct MusicItem
@@ -49,6 +50,7 @@ private:
 
     //界面其他元素
     QListWidget *ListWidget; //显示播放列表
+    CDLabel *cdLabel; //CD图片
     QLabel *Label[4]; //界面标签
     QSlider *DurationBar; //播放进度条
 
@@ -89,4 +91,5 @@ private slots:
     //播放进度条松开
     void durationSliderReleased();
 };
+
 #endif // MAINWINDOW_H
