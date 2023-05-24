@@ -2,6 +2,8 @@
 - 基于正点原子Qt开发文档的音乐播放器例程开发
 - 开发环境:Windows 10, Qt 5.14.2
 
+![效果图](https://raw.githubusercontent.com/Xingzhe-Tung/PicgoBed/main/Qt/QtMP3player-beta.gif)
+
 ### 目前项目所涉及
 
 - 基本的 Qt 界面布局
