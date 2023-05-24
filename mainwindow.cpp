@@ -275,8 +275,8 @@ void MainWindow::scanSong()
                                                  .replace(".mp3"," ")
                                                  .toUtf8()
                                                  .data());
-            info.ItemName = fileName + "\n"
-                    +fileName.split("-").at(1);
+            info.ItemName = fileName + "\n";
+//                    +fileName.split("-").at(1);
             info.ItemPath = QString::fromUtf8(files.at(i)
                                               .filePath()
                                               .toUtf8()
